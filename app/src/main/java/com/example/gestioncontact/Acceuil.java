@@ -29,5 +29,13 @@ public class Acceuil extends AppCompatActivity {
 
         tvusername.setText("Acceuil de Mr."+u);
 
+        btnaff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Acceuil.this, Affichage.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
