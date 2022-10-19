@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_light"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Acceuil">
+
+    <TextView
+        android:id="@+id/tvuser_acc"
+        android:text="Acceuil"
+        style="@style/st_titre1" />
+
+    <Button
+        android:id="@+id/btnajout_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajout" />
+
+    <Button
+        android:id="@+id/btnaff_acc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Affichage" />
+</LinearLayout>
