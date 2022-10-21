@@ -20,11 +20,17 @@ public class Affichage extends AppCompatActivity {
         setContentView(R.layout.activity_affichage);
 
         lv = findViewById(R.id.lv_aff);
-        data.add(new Produit(1,"test produit 1","test designation 1",12.5,50));
-        data.add(new Produit(2,"test produit 2","test designation 2",22.5,0));
-        data.add(new Produit(3,"test produit 3","test designation 3",13.5,30));
-        data.add(new Produit(4,"test produit 4","test designation 4",12.4,40));
-        data.add(new Produit(5,"test produit 5","test designation 5",52.5,50));
+
+        ProduitManager manager = new ProduitManager(Affichage.this);
+
+        manager.ouvrir();
+        manager.ajout("test produit 1","test designation 1",12.5,50);
+        manager.ajout("test produit 2","test designation 2",22.5,0);
+        manager.ajout("test produit 3","test designation 3",13.5,30);
+        manager.ajout("test produit 4","test designation 4",12.4,40);
+        manager.ajout("test produit 5","test designation 5",52.5,50);
+
+        data = manager.getAllProduit();
 
         MonAdapter ad = new MonAdapter(Affichage.this, data);
         lv.setAdapter(ad);
