@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String nom = ednom.getText().toString();
                 String mp = edpass.getText().toString();
-                if (nom.equalsIgnoreCase("test")&&mp.equals("000")){
+                if (nom.equalsIgnoreCase("wissal")&&mp.equals("0000")){
                     Intent i = new Intent(MainActivity.this, Acceuil.class);
                     i.putExtra("username",nom); //putExtra is a hashmap to transfer data between activities
                     startActivity(i);

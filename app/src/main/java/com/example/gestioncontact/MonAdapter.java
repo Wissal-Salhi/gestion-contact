@@ -1,11 +1,13 @@
 package com.example.gestioncontact;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,10 +17,10 @@ import java.util.ArrayList;
 
 public class MonAdapter extends BaseAdapter {
 
-    private ArrayList<Produit> data;
+    private ArrayList<Contact> data;
     private Context con;
 
-    public MonAdapter( Context con, ArrayList<Produit> data) {
+    public MonAdapter( Context con, ArrayList<Contact> data) {
         this.data = data;
         this.con = con;
     }
@@ -48,24 +50,47 @@ public class MonAdapter extends BaseAdapter {
 
         //Recuperation des champs
         TextView tvid = card.findViewById(R.id.tvid_aff);
-        TextView tvintitul = card.findViewById(R.id.tvintitul_aff);
-        TextView tvdesign = card.findViewById(R.id.tvdesign_aff);
-        TextView tvprix = card.findViewById(R.id.tvprix_aff);
-        TextView tvquantite = card.findViewById(R.id.tvquantite_aff);
+        TextView tvnom_prenom = card.findViewById(R.id.tvnom_prenom_aff);
+        TextView tvemail = card.findViewById(R.id.tvemail_aff);
+        TextView tvnumero = card.findViewById(R.id.tvnum_aff);
 
         //Affecter les valeurs des champs
-        Produit p = data.get(i);
-        tvid.setText(""+p.getId());
-        tvintitul.setText(p.getIntitule());
-        tvdesign.setText(p.getDesignation());
-        tvprix.setText(""+p.getPrix());
-        tvquantite.setText(""+p.getQuantite());
+        Contact c = data.get(i);
+        tvid.setText(""+c.getId());
+        tvnom_prenom.setText(c.getNom()+" "+c.getPrenom());
+        tvemail.setText(c.getEmail());
+        tvnumero.setText(c.getNumero());
 
-        if (p.getQuantite() == 0){
-            tvquantite.setText("Sold out");
-            tvquantite.setTextColor(Color.RED);
+        if (c.getEmail().equals("")){
+            tvemail.setText("Have no email");
         }
 
         return card;
     }
+
+    public void removeItem(int i, View view) {
+        CardView card = null;
+
+        //Creation d'un view
+        LayoutInflater inf = LayoutInflater.from(con);
+        card = (CardView) inf.inflate(R.layout.element, null);
+
+        //Recuperation des champs
+        Button btnsupp = card.findViewById(R.id.btnsup_aff);
+        TextView tvid = card.findViewById(R.id.tvid_aff);
+
+        btnsupp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContactManager manager = new ContactManager(con);
+                manager.ouvrir();
+                manager.supprimerItem(tvid.getText().toString());
+                Intent i = new Intent(con, Affichage.class);
+                con.startActivity(i);
+            }
+        });
+
+    }
+
+
 }

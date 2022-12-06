@@ -11,18 +11,27 @@
 
     <TextView
         android:id="@+id/tvuser_acc"
+        style="@style/st_titre1"
         android:text="Acceuil"
-        style="@style/st_titre1" />
+        android:textSize="34sp" />
 
     <Button
         android:id="@+id/btnajout_acc"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Ajout" />
+        android:text="Ajout du contact" />
 
     <Button
         android:id="@+id/btnaff_acc"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="Affichage" />
+        android:text="Affichage dex contacts" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="346dp"
+        android:layout_height="477dp"
+        app:srcCompat="@drawable/oip" />
+
+
 </LinearLayout>

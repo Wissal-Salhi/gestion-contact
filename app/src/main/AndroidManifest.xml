@@ -13,6 +13,13 @@
         android:theme="@style/Theme.GestionContact"
         tools:targetApi="31" >
         <activity
+            android:name=".Ajout"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Affichage"
             android:exported="false" >
             <meta-data

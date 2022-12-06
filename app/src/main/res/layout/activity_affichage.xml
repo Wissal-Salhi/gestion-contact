@@ -12,7 +12,8 @@
         style="@style/st_titre1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Affichage"/>
+        android:text="Liste de  contacts"
+        android:textSize="34sp" />
 
     <ListView
         android:id="@+id/lv_aff"
